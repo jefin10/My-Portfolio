@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -6,6 +7,8 @@ const Contact = () => {
     email: '',
     companyName: ''
   });
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -16,6 +19,26 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    emailjs.sendForm(
+        'service_azjb7n6', 
+        'template_i90pvsb', 
+        e.target, 
+        'YDuVgM9HyjS1eY6He' 
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setMessage('Message sent successfully!');
+          setIsSubmitting(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setMessage('Oops! Something went wrong, please try again later.');
+          setIsSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -55,19 +78,25 @@ const Contact = () => {
                   <input
                     type="text"
                     name="companyName"
-                    placeholder="Company Name"
+                    placeholder="Reason"
                     value={formData.companyName}
                     onChange={handleChange}
                     className="w-full bg-gray-900 border-b border-gray-700 p-4 text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
                   />
                 </div>
                 <div>
-                    <button type="submit" className="w-full bg-gray-800 text-white hover:bg-blue-400 transition-colors py-4 px-8 rounded-md">
-                      Send Message
-                    </button>
+                <button
+                    type="submit"
+                    className="w-full bg-gray-800 text-white hover:bg-blue-400 transition-colors py-4 px-8 rounded-md"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
                 </div>
               </div>
             </form>
+            {message && <p className="text-center text-white mt-4">{message}</p>}
+
           </div>
 
           <div className="space-y-8 lg:pl-12">

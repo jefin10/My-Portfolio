@@ -48,7 +48,7 @@ const About = () => {
             </div>
 
             <button className="ml-34p group relative overflow-hidden px-6 py-3 rounded-full bg-zinc-800 text-white font-medium tracking-wider hover:bg-zinc-700 transform transition-all duration-300 hover:scale-105 border border-zinc-700">
-              <span className="relative z-10 flex items-center gap-2">
+              <a className="relative z-10 flex items-center gap-2" href='https://drive.google.com/file/d/17SrlSuHp3qDPQiS7fjO4XZqA_Mn6Zx18/view?usp=sharing'>
                 Resume
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const About = () => {
                     d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
                   />
                 </svg>
-              </span>
+              </a>
             </button>
           </div>
         </div>
