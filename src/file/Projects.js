@@ -1,23 +1,113 @@
 import React from 'react';
 import st from './st.png'
 import { Github, Link as LinkIcon } from 'lucide-react';
-import yt from './yt-home.png'
-import celeb from './celeb.png'
-import ods from './ods.png'
 
-
+import konvo_page from './konvo_page.png'
+import zylo from './zylo.png'
+import celebfindr from './celebfindr.png'
+import playtube from './playtube.png'
+import lifelink from './lifelink.png'
 const Projects = () => {
   return (
     <>
-      <div className="h-99 bg-gray-950 text-white m-10 rounded-lg flex flex-col lg:flex-row">
-        <main className="container mx-auto px-6 py-8 lg:py-12">
-          <header className="container mx-auto px-4 lg:px-6 py-4">
-            <div className="flex justify-between items-center">
+    <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
+        <main className="container px-6 py-8 mx-auto lg:py-12">
+          <header className="container px-4 py-4 mx-auto lg:px-6">
+            <div className="flex items-center justify-between">
               <div className="flex space-x-4">
-                <a href="https://github.com/jefin10/Youtube_Clone" className="p-3 rounded-full bg-gray-800 hover:bg-gray-700">
+                <a href="https://github.com/jefin10/Organ-Donation-System" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
                   <Github className="w-8 h-8" />
                 </a>
-                <a href="https://youtube-clone-neon-six.vercel.app/" className="p-3 rounded-full bg-gray-800 hover:bg-gray-700">
+                
+              </div>
+            </div>
+          </header>
+          <div className="grid items-center">
+            <div className="space-y-6 lg:space-y-8">
+              <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+                LifeLink
+              </h1>
+              <p className="text-lg text-gray-400 lg:text-xl">
+              Developed LifeLink, a hospital management system with session-based authentication using cookies. Hospitals act as admins, managing doctors and patients, while doctors oversee appointments and patient records. Patients can book appointments seamlessly. Built with Node.js and MongoDB for secure and efficient data handling.              
+              </p>
+              <div className="flex flex-wrap gap-3 lg:gap-4">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  React JS 
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  Node JS
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  Express JS
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  MongoDB
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
+          <img 
+            src={lifelink}
+            alt="LifeLink Preview"
+            className="object-contain w-full h-full rounded-lg "
+          />
+        </div>
+      </div>
+      <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
+        <main className="container px-6 py-8 mx-auto lg:py-12">
+          <header className="container px-4 py-4 mx-auto lg:px-6">
+            <div className="flex items-center justify-between">
+              <div className="flex space-x-4">
+                <a href="https://github.com/jefin10/CelebFindr" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
+                  <Github className="w-8 h-8" />
+                </a>
+                
+              </div>
+            </div>
+          </header>
+          <div className="grid items-center">
+            <div className="space-y-6 lg:space-y-8">
+              <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+                CelebFindr
+              </h1>
+              <p className="text-lg text-gray-400 lg:text-xl">
+              Developed CelebFindr, a celebrity detection website that identifies one of 26 celebrities from an uploaded image using a TensorFlow-powered CNN model. Built with React for a dynamic frontend and Flask for a fast, efficient backend, ensuring seamless and accurate predictions.              </p>
+              <div className="flex flex-wrap gap-3 lg:gap-4">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  REACT JS
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  FLASK
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  TENSORFLOW
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  OPENCV
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
+          <img 
+            src={celebfindr}
+            alt="Celebrity Detector Preview"
+            className="object-contain w-full h-full rounded-lg"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
+        <main className="container px-6 py-8 mx-auto lg:py-12">
+          <header className="container px-4 py-4 mx-auto lg:px-6">
+            <div className="flex items-center justify-between">
+              <div className="flex space-x-4">
+                <a href="https://github.com/jefin10/Youtube_clone" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
+                  <Github className="w-8 h-8" />
+                </a>
+                <a href="https://youtube-clone-neon-six.vercel.app/" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
                   <LinkIcon className="w-8 h-8" />
                 </a>
               </div>
@@ -25,44 +115,47 @@ const Projects = () => {
           </header>
           <div className="grid items-center">
             <div className="space-y-6 lg:space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
-                Youtube Clone
+              <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+                PlayTube
               </h1>
-              <p className="text-lg lg:text-xl text-gray-400">
-                Built a YouTube Clone using the YouTube API, enabling users to search, watch, and explore videos by categories, crafted with React.js and styled with Tailwind CSS for a responsive, modern interface.
+              <p className="text-lg text-gray-400 lg:text-xl">
+              Developed PlayTube, a YouTube clone leveraging the YouTube API, where users can search for videos, explore categories, and watch content seamlessly. Features a dynamic homepage, a dedicated search page for quick discovery, and a channel page for browsing uploads. Built with React.js and styled with Tailwind CSS for a modern, responsive experience.              
               </p>
               <div className="flex flex-wrap gap-3 lg:gap-4">
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
                   REACT.JS
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
                   JAVASCRIPT
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
                   TAILWIND CSS
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
                   API
                 </span>
               </div>
             </div>
           </div>
         </main>
-        <div className="bg-gray-800 rounded-xl mx-4 lg:m-4p max-h-fit lg:h-full">
+        <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
           <img 
-            src={yt}
+            src={playtube}
             alt="YouTube Clone Preview"
-            className="h-full w-full object-contain rounded-lg"
+            className="object-contain w-full h-full rounded-lg"
           />
         </div>
       </div>
 
-      <div className="h-99 bg-gray-950 text-white m-10 rounded-lg flex flex-col lg:flex-row">
-        <main className="container mx-auto px-6 py-8 lg:py-12">
-          <header className="container mx-auto px-4 lg:px-6 py-4">
-            <div className="flex justify-between items-center">
+      
+
+      
+      <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
+        <main className="container px-6 py-8 mx-auto lg:py-12">
+          <header className="container px-4 py-4 mx-auto lg:px-6">
+            <div className="flex items-center justify-between">
               <div className="flex space-x-4">
-                <a href="https://github.com/jefin10/Celebrity-Detector" className="p-3 rounded-full bg-gray-800 hover:bg-gray-700">
+                <a href="https://github.com/jefin10/Organ-Donation-System" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
                   <Github className="w-8 h-8" />
                 </a>
                 
@@ -71,80 +164,76 @@ const Projects = () => {
           </header>
           <div className="grid items-center">
             <div className="space-y-6 lg:space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
-                Celebrity Detector
+              <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+                Konvo
               </h1>
-              <p className="text-lg lg:text-xl text-gray-400">
-                Created a Celebrity Detector that lets users upload an image to identify one of five celebrities, powered by scikit-learn neural networks, React for the frontend, and Django for seamless backend processing.
-              </p>
-              <div className="flex flex-wrap gap-3 lg:gap-4">
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  HTML/CSS
+              <p className="text-lg text-gray-400 lg:text-xl">
+              Konvo is a real-time messaging app built with React Native, Node.js, and Express.js, designed for seamless communication between users. It features a modern, mobile-first UI and integrates the Gemini API to power an AI chatbot for interactive conversations. The app supports chat history storage and retrieval, ensuring users can access previous messages effortlessly.
+              </p>       
+                           
+             <div className="flex flex-wrap gap-3 lg:gap-4">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  REACT-NATIVE
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  FLASK
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  NODE JS
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  SCIKIT-LEARN
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  EXPRESS JS
                 </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  OPENCV
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  MONGO DB
                 </span>
               </div>
             </div>
           </div>
         </main>
-        <div className="bg-gray-800 rounded-xl mx-4 lg:m-4p max-h-fit lg:h-full">
+        <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
           <img 
-            src={celeb}
-            alt="Celebrity Detector Preview"
-            className="h-full w-full object-contain rounded-lg"
-          />
-        </div>
-      </div>
-
-      <div className="h-99 bg-gray-950 text-white m-10 rounded-lg flex flex-col lg:flex-row">
-        <main className="container mx-auto px-6 py-8 lg:py-12">
-          <header className="container mx-auto px-4 lg:px-6 py-4">
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-4">
-                <a href="https://github.com/jefin10/Organ-Donation-System" className="p-3 rounded-full bg-gray-800 hover:bg-gray-700">
-                  <Github className="w-8 h-8" />
-                </a>
-                
-              </div>
-            </div>
-          </header>
-          <div className="grid items-center">
-            <div className="space-y-6 lg:space-y-8">
-              <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
-                LifeLink
-              </h1>
-              <p className="text-lg lg:text-xl text-gray-400">
-                Developed LifeLink, an organ donation management system where hospitals and doctors manage donations, and patients can book appointments. Built with Django for efficient backend processing and secure role-based access.
-              </p>
-              <div className="flex flex-wrap gap-3 lg:gap-4">
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  Django
-                </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  SQLITE
-                </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  HTML/CSS
-                </span>
-                <span className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium">
-                  TAILWIND CSS
-                </span>
-              </div>
-            </div>
-          </div>
-        </main>
-        <div className="bg-gray-800 rounded-xl mx-4 lg:m-4p max-h-fit lg:h-full">
-          <img 
-            src={ods}
+            src={konvo_page}
             alt="LifeLink Preview"
-            className="h-full w-full object-contain rounded-lg "
+            className="object-contain w-full h-full rounded-lg "
+          />
+        </div>
+      </div>
+      <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
+        <main className="container px-6 py-8 mx-auto lg:py-12">
+          <header className="container px-4 py-4 mx-auto lg:px-6">
+            <div className="flex items-center justify-between">
+              <div className="flex space-x-4">
+                <a href="https://github.com/jefin10/Organ-Donation-System" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700">
+                  <Github className="w-8 h-8" />
+                </a>
+                
+              </div>
+            </div>
+          </header>
+          <div className="grid items-center">
+            <div className="space-y-6 lg:space-y-8">
+              <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+                Zylo
+              </h1>
+              <p className="text-lg text-gray-400 lg:text-xl">
+              Zylo is a public tweeting app developed using React Native and Supabase, allowing users to post, like, and delete tweets. With a minimalistic and user-friendly interface, it enhances engagement through interactive features like likes. Supabase serves as the backend, providing secure data storage and authentication for a smooth user experience.
+                            </p>       
+                           
+             <div className="flex flex-wrap gap-3 lg:gap-4">
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  REACT-NATIVE
+                </span>
+                <span className="px-4 py-2 text-sm font-medium bg-gray-800 rounded-full">
+                  SUPABASE
+                </span>
+                
+              </div>
+            </div>
+          </div>
+        </main>
+        <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
+          <img 
+            src={zylo}
+            alt="LifeLink Preview"
+            className="object-contain w-full h-full rounded-lg "
           />
         </div>
       </div>

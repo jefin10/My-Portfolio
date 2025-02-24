@@ -100,9 +100,7 @@ function App() {
         <FullPageIntro onComplete={() => setShowIntro(false)} />
       ) : (
         <>
-          <div className="fixed inset-0 z-0">
-            <ParticleBackground />
-          </div>
+          
 
           <div className="relative z-10 flex flex-col w-full h-screen">
             <div className="flex-none w-full bg-transparent">
