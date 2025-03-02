@@ -8,7 +8,7 @@ const Home = () => {
   
 
   const [devIndex, setDevIndex] = useState(0);
-  const allDevs = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer', 'Data Scientist'];
+  const allDevs = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer'];
   const [animationKey, setAnimationKey] = useState(0);
   const [dev, setDev] = useState(allDevs[devIndex]);
 
@@ -31,9 +31,9 @@ const Home = () => {
 
   return (
     <div className='flex flex-col justify-between h-full'>
-      <div className='flex flex-col lg:flex-row h-full justify-start px-6 lg:px-20 pt-20 lg:pt-40'>
+      <div className='flex flex-col justify-between h-full px-6 pt-20 lg:flex-row lg:px-20 lg:pt-40'>
         <div className='text-center lg:text-left'>
-          <div className='text-light animate-fadein2 font-left font-lucida text-2xl lg:text-3xl bg-gradient-to-r from-white via-gray-800 to-black text-transparent bg-clip-text'>
+          <div className='text-2xl text-transparent text-light animate-fadein2 font-left font-lucida lg:text-3xl bg-gradient-to-r from-white via-gray-800 to-black bg-clip-text'>
             HI THERE, I'M
           </div>
           <div className='animate-fadein1 font-bold text-5xl lg:text-8.5xl bg-gradient-to-r from-white via-gray-500 to-gray-300 text-transparent bg-clip-text'>
@@ -41,24 +41,24 @@ const Home = () => {
           </div>
           <div 
             key={devIndex} 
-            className="inline-block text-xl lg:text-2xl lg:ml-19p text-center lg:text-left font-normal font-lucida bg-gradient-to-r from-white to-black text-transparent bg-clip-text whitespace-nowrap animate-typewriter"
+            className="inline-block text-xl font-normal text-center text-transparent lg:text-2xl lg:ml-19p lg:text-left font-lucida bg-gradient-to-r from-white to-black bg-clip-text whitespace-nowrap animate-typewriter"
           >
             {dev}
           </div>
         </div>
 
-        <div className='mt-8 lg:mt-0 lg:ml-19p w-48 lg:w-72 h-auto mx-auto lg:mx-0'>
+        <div className='flex flex-col justify-end w-48 h-auto mx-auto mt-8 lg:mt-0 lg:ml-19p lg:w-72 lg:mx-0'>
           <div className='w-full rounded-3xl bg-mine_lighter opacity-95'>
           <img 
               src={mine} 
-              className='animate-fadein1 rounded-3xl grayscale hover:grayscale-0 transition-all duration-500 ease-in-out transform hover:scale-105' 
+              className='transition-all duration-500 ease-in-out transform animate-fadein1 rounded-3xl grayscale hover:grayscale-0 hover:scale-105' 
               alt='Jefin Francis' 
             />          </div>
         </div>
       </div>
       
 
-      <div className='flex justify-center lg:justify-start lg:ml-37p mt-8 lg:mt-8p w-full lg:w-1/5 h-12 border-black border-1 rounded-xl bg-transparent'>
+      <div className='flex justify-center w-full h-12 mt-8 bg-transparent border-black lg:justify-start lg:ml-37p lg:mt-8p lg:w-1/5 border-1 rounded-xl'>
         <div className="card">
           <a href="https://www.linkedin.com/in/jefinfrancis/" className="socialContainer containerThree">
             <svg className="socialSvg linkdinSvg" viewBox="0 0 448 512">
