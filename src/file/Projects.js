@@ -9,7 +9,7 @@ import konvo_page from './konvo_page.png';
 import zylo from './zylo.png';
 
 const ProjectSection = ({ children, id, index, onInView }) => {
-  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: false });
+  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   React.useEffect(() => {
     if (inView && onInView) {
@@ -19,9 +19,9 @@ const ProjectSection = ({ children, id, index, onInView }) => {
 
   const isEven = index % 2 === 0;
   const pageVariants = {
-    hidden: { opacity: 0, x: isEven ? 200 : -200, scale: 0.75 },
+    hidden: { opacity: 0, x: isEven ? 50 : -50, scale: 0.75 },
     visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.8, ease: 'easeOut' } },
-    exit: { opacity: 0, x: isEven ? -200 : 200, scale: 0.75, transition: { duration: 0.6, ease: 'easeIn' } },
+    exit: { opacity: 0, x: isEven ? -50 : 50, scale: 0.75, transition: { duration: 0.6, ease: 'easeIn' } },
   };
 
   return (

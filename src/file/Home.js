@@ -33,7 +33,7 @@ const Home = () => {
     <div className='flex flex-col justify-between h-full'>
       <div className='flex flex-col justify-between h-full px-6 pt-20 lg:flex-row lg:px-20 lg:pt-40'>
         <div className='text-center lg:text-left'>
-          <div className='text-2xl text-transparent text-light animate-fadein2 font-left font-lucida lg:text-3xl bg-gradient-to-r from-white via-gray-800 to-black bg-clip-text'>
+          <div className='text-2xl text-transparent text-light animate-fadein2 font-left font-lucida lg:text-3xl bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text'>
             HI THERE, I'M
           </div>
           <div className='animate-fadein1 font-bold text-5xl lg:text-8.5xl bg-gradient-to-r from-white via-gray-500 to-gray-300 text-transparent bg-clip-text'>

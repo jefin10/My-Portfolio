@@ -4,27 +4,27 @@ import n from './n.png';
 import mine from './mine.JPG';
 const About = () => {
   return (
-    <div className='min-h-screen flex items-center justify-center px-4 py-16'>
-      <div className='bg-gray-950 backdrop-blur-sm w-full max-w-7xl rounded-3xl p-8 md:p-12 border border-zinc-800'>
-        <div className='flex flex-col md:flex-row gap-8 items-center'>
+    <div className='flex items-center justify-center min-h-screen px-4 py-16'>
+      <div className='w-full p-8 border bg-gray-950 backdrop-blur-sm max-w-7xl rounded-3xl md:p-12 border-zinc-800'>
+        <div className='flex flex-col items-center gap-8 md:flex-row'>
           <div className='flex-shrink-0'>
-            <div className='rounded-full bg-zinc-800 overflow-hidden w-48 h-48 md:w-64 md:h-64 border-2 border-zinc-700'>
+            <div className='w-48 h-48 overflow-hidden border-2 rounded-full bg-zinc-800 md:w-64 md:h-64 border-zinc-700'>
               <img 
                 src={mine} 
                 alt='Jefin' 
-                className='w-full h-full object-cover grayscale'
+                className='object-cover w-full h-full grayscale'
               />
             </div>
           </div>
 
-          <div className='flex-1 text-white space-y-8'>
-            <h2 className='text-4xl md:text-5xl font-bold text-white border-b-2 border-zinc-700 pb-2 inline-block ml-25p'>
+          <div className='flex-1 space-y-8 text-white'>
+            <h2 className='inline-block pb-2 text-4xl font-bold text-white border-b-2 md:text-5xl border-zinc-700 ml-25p'>
               ABOUT ME
             </h2>
             
-            <div className='space-y-6 text-zinc-300 leading-relaxed font-syne'>
+            <div className='space-y-6 leading-relaxed text-zinc-300 font-syne'>
               <p className='text-lg'>
-                Hi, I'm <span className='text-white font-semibold'>Jefin Francis</span>, 
+                Hi, I'm <span className='font-semibold text-white'>Jefin Francis</span>, 
                 a passionate developer with a keen interest in web development, machine learning, 
                 and data science. I'm currently pursuing my second year of Computer Science 
                 Engineering at the Indian Institute of Information Technology Kottayam.
@@ -47,8 +47,8 @@ const About = () => {
               </p>
             </div>
 
-            <button className="ml-34p group relative overflow-hidden px-6 py-3 rounded-full bg-zinc-800 text-white font-medium tracking-wider hover:bg-zinc-700 transform transition-all duration-300 hover:scale-105 border border-zinc-700">
-              <a className="relative z-10 flex items-center gap-2" href='https://drive.google.com/file/d/17SrlSuHp3qDPQiS7fjO4XZqA_Mn6Zx18/view?usp=sharing'>
+            <button className="relative px-6 py-3 overflow-hidden font-medium tracking-wider text-white transition-all duration-300 transform border rounded-full ml-34p group bg-zinc-800 hover:bg-zinc-700 hover:scale-105 border-zinc-700">
+              <a className="relative z-10 flex items-center gap-2" href='https://drive.google.com/file/d/1IiuEvwE7QFq22ME7lBfW_5PDZf5gNUJt/view?usp=sharing'>
                 Resume
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
