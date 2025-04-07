@@ -88,7 +88,7 @@ const Projects = () => {
       description: "Developed LifeLink, a hospital management system with session-based authentication using cookies.",
       technologies: ['React JS', 'Node JS', 'Express JS', 'MongoDB'],
       image: lifelink,
-      repoLink: "https://github.com/jefin10/Organ-Donation-System",
+      repoLink: "https://github.com/jefin10/LifeLink",
       liveLink: null
     },
     {
@@ -112,7 +112,7 @@ const Projects = () => {
       description: "Konvo is a real-time messaging app with an AI chatbot, built with React Native and Node.js.",
       technologies: ['React Native', 'Node JS', 'Express JS', 'MongoDB'],
       image: konvo_page,
-      repoLink: "https://github.com/jefin10/Organ-Donation-System",
+      repoLink: "https://github.com/jefin10/Konvo",
       liveLink: null
     },
     {
@@ -120,7 +120,7 @@ const Projects = () => {
       description: "Zylo is a public tweeting app using React Native and Supabase, allowing users to post and like tweets.",
       technologies: ['React Native', 'Supabase'],
       image: zylo,
-      repoLink: "https://github.com/jefin10/Organ-Donation-System",
+      repoLink: "https://github.com/jefin10/Zylo",
       liveLink: null
     }
   ];
