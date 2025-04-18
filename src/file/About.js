@@ -48,7 +48,7 @@ const About = () => {
             </div>
 
             <button className="relative px-6 py-3 overflow-hidden font-medium tracking-wider text-white transition-all duration-300 transform border rounded-full ml-34p group bg-zinc-800 hover:bg-zinc-700 hover:scale-105 border-zinc-700">
-              <a className="relative z-10 flex items-center gap-2" href='https://drive.google.com/file/d/1IiuEvwE7QFq22ME7lBfW_5PDZf5gNUJt/view?usp=sharing'>
+              <a className="relative z-10 flex items-center gap-2" href='https://drive.google.com/file/d/1B-QC0NPBmnwVhq85mougVDP0uLcNw235/view?usp=sharing'>
                 Resume
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
