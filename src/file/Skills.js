@@ -27,7 +27,7 @@ import mysql from './logo/mysql.png';
 import mongodb from './logo/mongodb.png';
 import sqlite from './logo/sqlite.png';
 import github from './logo/github.png';
-
+import expo from './logo/tt.svg';
 
 const getSkillIcon = (skill) => {
   // Map skills to appropriate icons
@@ -46,7 +46,7 @@ const getSkillIcon = (skill) => {
     "CSS3": <img src={css} alt="CSS3" className="w-5 h-5" />,
     "Tailwind": <img src={tailwind} alt="Tailwind" className="w-5 h-5" />,
     "Node JS": <img src={node} alt="Node JS" className="w-5 h-5" />,
-    "Django": <img src={django} alt="Django" className="w-5 h-5" />,
+    "Express JS": <img src={node} alt="Express JS" className="w-5 h-5" />,
     
     "Scikit-Learn": <Brain className="w-5 h-5" />,
     "NumPy": <Boxes className="w-5 h-5" />,
@@ -62,6 +62,10 @@ const getSkillIcon = (skill) => {
     "MySQL": <img src={mysql} alt="MySQL" className="w-5 h-5" />,
     "MongoDB": <img src={mongodb} alt="MongoDB" className="w-5 h-5" />,
     "Sqlite": <img src={sqlite} alt="Sqlite" className="w-5 h-5" />,
+
+    "React Native": <img src={react} alt='react' className='w-5 h-5'/>,
+    "Expo ": <img src={expo} alt='react' className='w-5 h-5'/>,
+    "NativeWind": <img src={tailwind} alt='react' className='w-5 h-5'/>,
   };
   return iconMap[skill] || <Code2 className="w-5 h-5" />;
 };
@@ -70,6 +74,7 @@ const getCategoryIcon = (title) => {
   const categoryIcons = {
     "Programming Languages": <Code2 className="w-6 h-6" />,
     "WEB Development": <Globe className="w-6 h-6" />,
+    "App Development": <Globe className="w-6 h-6" />,
     "Machine Learning": <Brain className="w-6 h-6" />,
     "Tools & Technologies": <Wrench className="w-6 h-6" />,
     "Databases": <Database className="w-6 h-6" />
@@ -99,8 +104,7 @@ const SkillCategory = ({ title, skills }) => {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="bg-gray-800 rounded-full px-4 py-2 text-sm hover:bg-gray-700 
-                     transition-colors duration-300 cursor-default flex items-center gap-2"
+            className="flex items-center gap-2 px-4 py-2 text-sm transition-colors duration-300 bg-gray-800 rounded-full cursor-default hover:bg-gray-700"
           >
             {getSkillIcon(skill)}
             <span>{skill}</span>
@@ -119,11 +123,16 @@ const Skills = () => {
     },
     {
       title: "WEB Development",
-      skills: ["React JS", "HTML5", "CSS3", "Tailwind", "Node JS", "Django"]
+      skills: ["React JS", "HTML5", "CSS3", "Tailwind", "Node JS", "Express JS"]
     },
+
     {
       title: "Machine Learning",
       skills: ["Scikit-Learn", "NumPy", "OpenCV", "MediaPipe", "Pandas"]
+    },
+    {
+      title: "App Development",
+      skills: ["React Native", "Expo", "NativeWind"]
     },
     {
       title: "Tools & Technologies",
@@ -132,16 +141,17 @@ const Skills = () => {
     {
       title: "Databases",
       skills: ["MySQL", "MongoDB", "Sqlite"]
-    }
+    },
+    
   ];
 
   return (
     <div className="min-h-screen p-8 bg-transparent">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
           
         </div>
-        <div className="bg-gray-950 backdrop-blur-sm text-white rounded-xl p-8 shadow-2xl border border-gray-800/50 space-y-12 ">
+        <div className="p-8 space-y-12 text-white border shadow-2xl bg-gray-950 backdrop-blur-sm rounded-xl border-gray-800/50 ">
           {skillsData.map((category, index) => (
             <SkillCategory
               key={index}
