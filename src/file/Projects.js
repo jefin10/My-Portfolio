@@ -158,7 +158,7 @@ const Projects = () => {
       description: "RescueBytes is a real-time disaster management system enabling emergency alerts, volunteer coordination, and location-based admin-user interaction through a mobile app and web platform..",
       technologies: ['React Native','React JS', 'Node JS', 'Express JS', 'MongoDB'],
       image: mv,
-      repoLink: "https://github.com/jefin10/RescueBytes",
+      repoLink: "https://github.com/jefin10/MovieVerse",
       liveLink: "https://rbbackend-hlah.onrender.com",
       featured: true
     },
@@ -169,7 +169,7 @@ const Projects = () => {
       technologies: ['React JS', 'Node JS', 'Express JS', 'MongoDB'],
       image: lifelink,
       repoLink: "https://github.com/jefin10/LifeLink",
-      liveLink: null,
+      liveLink: "https://lifelink-pxpw.onrender.com",
       featured: false
     },
     {
