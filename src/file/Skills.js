@@ -6,8 +6,10 @@ import {
   Brain, 
   Wrench, 
   Database,
-  Boxes,MonitorDown,
+  Boxes,
+  MonitorDown,
 } from 'lucide-react';
+import { motion } from 'framer-motion'; // Add this import
 import python from './logo/python.png';
 import java from './logo/java.png';
 import javascript from './logo/javascript.png';
@@ -89,6 +91,37 @@ const SkillCategory = ({ title, skills }) => {
     threshold: 0.1
   });
 
+  // Animation variants for container
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Stagger the animations of children
+        delayChildren: 0.3,   // Delay the start of children animations
+      }
+    }
+  };
+
+  // Animation variants for individual skills
+  const skillVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      scale: 0.8 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: { 
+        type: "spring",
+        stiffness: 120,
+        damping: 12
+      }
+    }
+  };
+
   return (
     <div 
       ref={ref}
@@ -100,17 +133,40 @@ const SkillCategory = ({ title, skills }) => {
         {getCategoryIcon(title)}
         <h2 className="text-xl font-semibold">{title}</h2>
       </div>
-      <div className="flex flex-wrap gap-3">
+      
+      <motion.div 
+        className="flex flex-wrap gap-3"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
         {skills.map((skill, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex items-center gap-2 px-4 py-2 text-sm transition-colors duration-300 bg-gray-800 rounded-full cursor-default hover:bg-gray-700"
+            variants={skillVariants}
+            whileHover={{ 
+              scale: 1.1, 
+              backgroundColor: '#4B5563', // Darker bg on hover (gray-700)
+              boxShadow: '0 0 8px rgba(156, 163, 175, 0.5)', // Subtle glow effect
+              rotate: [-1, 1, 0], // Subtle wobble effect
+              transition: { 
+                duration: 0.3,
+                rotate: {
+                  duration: 0.2,
+                  ease: "easeInOut",
+                  repeat: 0
+                }
+              }
+            }}
+            className="flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 transform bg-gray-800 rounded-full cursor-pointer hover:text-white"
           >
-            {getSkillIcon(skill)}
+            <span className="transition-all duration-300 transform group-hover:scale-110">
+              {getSkillIcon(skill)}
+            </span>
             <span>{skill}</span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -119,7 +175,7 @@ const Skills = () => {
   const skillsData = [
     {
       title: "Programming Languages",
-      skills: ["Python", "JavaScript", "C++", "C", "Java", "PHP"]
+      skills: ["Dart","TypeScript","JavaScript","Python",  "C++", "C", "Java"]
     },
     {
       title: "WEB Development",
@@ -132,7 +188,7 @@ const Skills = () => {
     },
     {
       title: "App Development",
-      skills: ["React Native", "Expo", "NativeWind"]
+      skills: ["Flutter","React Native", "Expo", "NativeWind"]
     },
     {
       title: "Tools & Technologies",
@@ -140,7 +196,7 @@ const Skills = () => {
     },
     {
       title: "Databases",
-      skills: ["MySQL", "MongoDB", "Sqlite"]
+      skills: [ "MongoDB", "Sqlite","Firebase","PostgreSQL","Supabase"]
     },
     
   ];
@@ -148,10 +204,8 @@ const Skills = () => {
   return (
     <div className="min-h-screen p-8 bg-transparent">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          
-        </div>
-        <div className="p-8 space-y-12 text-white border shadow-2xl bg-gray-950 backdrop-blur-sm rounded-xl border-gray-800/50 ">
+        
+        <div className="p-8 space-y-12 text-white border shadow-2xl bg-gray-950 backdrop-blur-sm rounded-xl border-gray-800/50">
           {skillsData.map((category, index) => (
             <SkillCategory
               key={index}

@@ -26,16 +26,45 @@ const FullPageIntro = ({ onComplete }) => {
 };
 
 const PageSection = ({ children, id, onInView, sectionRef }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.2,
+  // Replace single threshold with an array of thresholds for more precise detection
+  const [ref, inView, entry] = useInView({
+    threshold: [0.1, 0.2, 0.5, 0.8],
     triggerOnce: false,
   });
 
+  // Use useRef to track scroll direction
+  const prevYRef = useRef(window.scrollY);
+  const [scrollDirection, setScrollDirection] = useState(null);
+
+  // Track scroll direction
   useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const direction = currentY > prevYRef.current ? 'down' : 'up';
+      prevYRef.current = currentY;
+      setScrollDirection(direction);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Enhanced intersection logic based on scroll direction
     if (inView) {
-      onInView(id);
+      // Home section needs special handling when scrolling up
+      if (id === 'home' && scrollDirection === 'up') {
+        // Lower threshold for home when scrolling up
+        if (entry && entry.intersectionRatio > 0.1) {
+          onInView(id);
+        }
+      } 
+      // For all other sections or when scrolling down
+      else if (entry && entry.intersectionRatio > 0.2) {
+        onInView(id);
+      }
     }
-  }, [inView, id, onInView]);
+  }, [inView, id, onInView, entry, scrollDirection]);
 
   const pageVariants = {
     hidden: { 

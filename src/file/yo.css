@@ -97,3 +97,90 @@ html {
 .overflow-y-auto::-webkit-scrollbar {
   display: none; 
 }
+
+/* Image hover effects */
+.image-container {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.hover:shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+img:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+/* Typing cursor animation */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  font-weight: 100;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  position: relative;
+  display: inline-block;
+}
+
+.typing-cursor::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-delay {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

@@ -42,9 +42,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-950  text-white p-8 my-10 mx-10p  rounded-xl">
+    <div className="p-8 my-10 text-white bg-gray-950 mx-10p rounded-xl">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="space-y-8">
             <h1 className="text-5xl font-bold leading-tight">
               Let's build<br />
@@ -61,7 +61,7 @@ const Contact = () => {
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-gray-900 border-b border-gray-700 p-4 text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+                    className="w-full p-4 text-white placeholder-gray-500 transition-colors bg-gray-900 border-b border-gray-700 focus:outline-none focus:border-white"
                   />
                 </div>
                 <div>
@@ -71,7 +71,7 @@ const Contact = () => {
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-gray-900 border-b border-gray-700 p-4 text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+                    className="w-full p-4 text-white placeholder-gray-500 transition-colors bg-gray-900 border-b border-gray-700 focus:outline-none focus:border-white"
                   />
                 </div>
                 <div>
@@ -81,13 +81,13 @@ const Contact = () => {
                     placeholder="Reason"
                     value={formData.companyName}
                     onChange={handleChange}
-                    className="w-full bg-gray-900 border-b border-gray-700 p-4 text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors"
+                    className="w-full p-4 text-white placeholder-gray-500 transition-colors bg-gray-900 border-b border-gray-700 focus:outline-none focus:border-white"
                   />
                 </div>
                 <div>
                 <button
                     type="submit"
-                    className="w-full bg-gray-800 text-white hover:bg-blue-400 transition-colors py-4 px-8 rounded-md"
+                    className="w-full px-8 py-4 text-white transition-colors bg-gray-800 rounded-md hover:bg-blue-400"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -95,47 +95,47 @@ const Contact = () => {
                 </div>
               </div>
             </form>
-            {message && <p className="text-center text-white mt-4">{message}</p>}
+            {message && <p className="mt-4 text-center text-white">{message}</p>}
 
           </div>
 
           <div className="space-y-8 lg:pl-12">
             <div className="space-y-4">
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">EMAIL</p>
-                <a href="mailto:jefinjefees@gmail.com" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">EMAIL</p>
+                <a href="mailto:jefinjefees@gmail.com" className="text-white transition-colors hover:text-gray-300">
                   jefinjefees@gmail.com
                 </a>
               </div>
               
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">LinkedIn</p>
-                <a href="https://www.linkedin.com/in/jefinfrancis/" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">LinkedIn</p>
+                <a href="https://www.linkedin.com/in/jefinfrancis/" className="text-white transition-colors hover:text-gray-300">
                   Jefin Francis
                 </a>
               </div>
               
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">Instagram</p>
-                <a href="https://www.instagram.com/jefin._.francis/" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">Instagram</p>
+                <a href="https://www.instagram.com/jefin._.francis/" className="text-white transition-colors hover:text-gray-300">
                   jefinfrancis
                 </a>
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">GitHub</p>
-                <a href="https://github.com/jefin10" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">GitHub</p>
+                <a href="https://github.com/jefin10" className="text-white transition-colors hover:text-gray-300">
                   jefin10
                 </a>
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">LeetCode</p>
-                <a href="https://leetcode.com/u/Jefin_10/" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">LeetCode</p>
+                <a href="https://leetcode.com/u/Jefin_10/" className="text-white transition-colors hover:text-gray-300">
                   Jefin_10
                 </a>
               </div>
               <div className="space-y-2">
-                <p className="text-gray-400 text-sm">Codeforces</p>
-                <a href="https://codeforces.com/profile/Jeff_10" className="text-white hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-400">Codeforces</p>
+                <a href="https://codeforces.com/profile/Jeff_10" className="text-white transition-colors hover:text-gray-300">
                   Jeff_10
                 </a>
               </div>

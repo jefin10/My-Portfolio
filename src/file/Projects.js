@@ -1,3 +1,5 @@
+// Remove section headings and modify the component structure
+
 import React from 'react';
 import { Github, Link as LinkIcon } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
@@ -7,9 +9,10 @@ import celebfindr from './celebfindr.png';
 import playtube from './playtube.png';
 import konvo_page from './konvo_page.png';
 import zylo from './zylo.png';
-
+import rb from './rb.jpg';  
+import mv from './mv.png';
 const ProjectSection = ({ children, id, index, onInView }) => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
   React.useEffect(() => {
     if (inView && onInView) {
@@ -38,7 +41,8 @@ const ProjectSection = ({ children, id, index, onInView }) => {
   );
 };
 
-const ProjectCard = ({ title, description, technologies, image, repoLink, liveLink, index, onInView }) => (
+// Featured project card (larger, for full-width display)
+const FeaturedProjectCard = ({ title, description, technologies, image, repoLink, liveLink, index, onInView }) => (
   <ProjectSection id={title} index={index} onInView={onInView}>
     <div className="flex flex-col m-10 text-white rounded-lg h-99 bg-gray-950 lg:flex-row">
       <main className="container px-6 py-8 mx-auto lg:py-12">
@@ -70,11 +74,68 @@ const ProjectCard = ({ title, description, technologies, image, repoLink, liveLi
           </div>
         </div>
       </main>
-      <div className="mx-4 bg-gray-800 rounded-xl lg:m-4p max-h-fit lg:h-full">
+      <div className="mx-4 bg-gray-950 rounded-xl lg:m-4p max-h-fit lg:h-full">
         <img src={image} alt={`${title} Preview`} className="object-contain w-full h-full rounded-lg" />
       </div>
     </div>
   </ProjectSection>
+);
+
+// Regular project card (smaller, for the grid)
+const RegularProjectCard = ({ title, description, technologies, image, repoLink, liveLink, animationDelay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ 
+      duration: 0.6, 
+      delay: animationDelay,
+      ease: [0.22, 1, 0.36, 1] 
+    }}
+    className="flex flex-col h-full text-white rounded-lg bg-gray-950"
+  >
+    <div className="h-48 p-2 overflow-hidden rounded-t-lg bg-gray-950">
+      <motion.img 
+        src={image} 
+        alt={`${title} Preview`} 
+        className="object-contain w-full h-full rounded-lg" 
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      />
+    </div>
+    <div className="flex flex-col justify-between flex-1 p-6">
+      <div>
+        <h2 className="mb-2 text-2xl font-bold">{title}</h2>
+        <p className="mb-4 text-sm text-gray-400">{description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.map((tech, index) => (
+            <span key={index} className="px-2 py-1 text-xs font-medium bg-gray-800 rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="flex mt-4 space-x-3">
+        <motion.a 
+          href={repoLink} 
+          className="p-2 bg-gray-800 rounded-full hover:bg-gray-700"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <Github className="w-5 h-5" />
+        </motion.a>
+        {liveLink && (
+          <motion.a 
+            href={liveLink} 
+            className="p-2 bg-gray-800 rounded-full hover:bg-gray-700"
+            whileHover={{ scale: 1.1, rotate: -5 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <LinkIcon className="w-5 h-5" />
+          </motion.a>
+        )}
+      </div>
+    </div>
+  </motion.div>
 );
 
 const Projects = () => {
@@ -84,12 +145,32 @@ const Projects = () => {
 
   const projectsData = [
     {
+      title: "RescueBytes",
+      description: "RescueBytes is a real-time disaster management system enabling emergency alerts, volunteer coordination, and location-based admin-user interaction through a mobile app and web platform..",
+      technologies: ['React Native','React JS', 'Node JS', 'Express JS', 'MongoDB'],
+      image: rb,
+      repoLink: "https://github.com/jefin10/RescueBytes",
+      liveLink: "https://rbbackend-hlah.onrender.com",
+      featured: true
+    },
+    {
+      title: "MovieVerse",
+      description: "RescueBytes is a real-time disaster management system enabling emergency alerts, volunteer coordination, and location-based admin-user interaction through a mobile app and web platform..",
+      technologies: ['React Native','React JS', 'Node JS', 'Express JS', 'MongoDB'],
+      image: mv,
+      repoLink: "https://github.com/jefin10/RescueBytes",
+      liveLink: "https://rbbackend-hlah.onrender.com",
+      featured: true
+    },
+
+    {
       title: "LifeLink",
       description: "Developed LifeLink, a hospital management system with session-based authentication using cookies.",
       technologies: ['React JS', 'Node JS', 'Express JS', 'MongoDB'],
       image: lifelink,
       repoLink: "https://github.com/jefin10/LifeLink",
-      liveLink: null
+      liveLink: null,
+      featured: false
     },
     {
       title: "CelebFindr",
@@ -97,7 +178,8 @@ const Projects = () => {
       technologies: ['React JS', 'Flask', 'TensorFlow', 'OpenCV'],
       image: celebfindr,
       repoLink: "https://github.com/jefin10/CelebFindr",
-      liveLink: null
+      liveLink: null,
+      featured: true
     },
     {
       title: "PlayTube",
@@ -125,17 +207,39 @@ const Projects = () => {
     }
   ];
 
+  // Separate featured and regular projects
+  const featuredProjects = projectsData.filter(project => project.featured);
+  const regularProjects = projectsData.filter(project => !project.featured);
+
   return (
-    <>
-      {projectsData.map((project, index) => (
-        <ProjectCard
-          key={project.title}
-          index={index}
-          onInView={handleSectionInView}
-          {...project}
-        />
-      ))}
-    </>
+    <div className="container px-4 mx-auto">
+      {/* Section title */}
+      
+
+      {/* Featured Projects (Main ones) */}
+      <div className="mb-16">
+        {featuredProjects.map((project, index) => (
+          <FeaturedProjectCard
+            key={project.title}
+            index={index}
+            onInView={handleSectionInView}
+            {...project}
+          />
+        ))}
+      </div>
+
+      {/* Regular Projects Grid (Smaller ones) */}
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {regularProjects.map((project, index) => (
+          <RegularProjectCard 
+            key={project.title} 
+            {...project}
+            // Only add animation delay to the first two projects
+            animationDelay={index < 2 ? index * 0.2 : 0}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

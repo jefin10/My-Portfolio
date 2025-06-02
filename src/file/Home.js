@@ -1,33 +1,48 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import jefin from './jefin.png'
 import jefi from './jefi.png'
-import { useState } from 'react'
 import './yo.css'
 import mine from './mine.JPG'
 const Home = () => {
   
 
-  const [devIndex, setDevIndex] = useState(0);
-  const allDevs = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer'];
-  const [animationKey, setAnimationKey] = useState(0);
-  const [dev, setDev] = useState(allDevs[devIndex]);
-
+  const [currentRole, setCurrentRole] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  
+  const roles = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer'];
+  
   useEffect(() => {
-    let index = 0;
-    const changeDev = () => {
-      setDev(allDevs[index]);
-      setAnimationKey(prevKey => prevKey + 1);
+    const typeEffect = () => {
+      const currentText = roles[roleIndex];
       
-      setDevIndex(prevIndex => {
-        const newIndex = (prevIndex + 1) % allDevs.length; 
-        setDev(allDevs[newIndex]); 
-        return newIndex; 
-      });
+      if (!isDeleting) {
+        // Typing
+        setCurrentRole(currentText.substring(0, currentRole.length + 1));
+        
+        // If completed typing the word
+        if (currentRole === currentText) {
+          // Pause before starting to delete
+          setTimeout(() => setIsDeleting(true), 1500);
+          return;
+        }
+      } else {
+        // Deleting
+        setCurrentRole(currentText.substring(0, currentRole.length - 1));
+        
+        // If completed deleting
+        if (currentRole === '') {
+          setIsDeleting(false);
+          setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+          return;
+        }
+      }
     };
-
-    const interval = setInterval(changeDev, 5000); 
-    return () => clearInterval(interval);
-  }, [allDevs]);
+    
+    const timer = setTimeout(typeEffect, isDeleting ? typingSpeed / 2 : typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentRole, isDeleting, roleIndex, roles, typingSpeed]);
 
   return (
     <div className='flex flex-col justify-between h-full'>
@@ -39,19 +54,17 @@ const Home = () => {
           <div className='animate-fadein1 font-bold text-5xl lg:text-8.5xl bg-gradient-to-r from-white via-gray-500 to-gray-300 text-transparent bg-clip-text'>
             JEFIN FRANCIS
           </div>
-          <div 
-            key={devIndex} 
-            className="inline-block text-xl font-normal text-center text-transparent lg:text-2xl lg:ml-19p lg:text-left font-lucida bg-gradient-to-r from-white to-black bg-clip-text whitespace-nowrap animate-typewriter"
-          >
-            {dev}
+          <div className="inline-block text-xl font-normal text-center lg:text-2xl lg:ml-19p lg:text-left font-lucida whitespace-nowrap">
+            <span className="text-transparent typing-cursor bg-gradient-to-r from-white to-gray-400 bg-clip-text">{currentRole}</span>
+            <span className="text-white cursor-blink">|</span>
           </div>
         </div>
 
         <div className='flex flex-col justify-end w-48 h-auto mx-auto mt-8 lg:mt-0 lg:ml-19p lg:w-72 lg:mx-0'>
-          <div className='w-full rounded-3xl bg-mine_lighter opacity-95'>
+          <div className='w-full rounded-3xl bg-mine_lighter opacity-95 image-container'>
           <img 
               src={mine} 
-              className='transition-all duration-500 ease-in-out transform animate-fadein1 rounded-3xl grayscale hover:grayscale-0 hover:scale-105' 
+              className='transition-all duration-500 ease-in-out transform animate-fadein1 rounded-3xl grayscale hover:grayscale-0 hover:scale-105 hover:shadow-glow' 
               alt='Jefin Francis' 
             />          </div>
         </div>
