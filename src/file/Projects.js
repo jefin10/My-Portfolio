@@ -156,10 +156,10 @@ const Projects = () => {
     {
       title: "MovieVerse",
       description: "RescueBytes is a real-time disaster management system enabling emergency alerts, volunteer coordination, and location-based admin-user interaction through a mobile app and web platform..",
-      technologies: ['React Native','React JS', 'Node JS', 'Express JS', 'MongoDB'],
+      technologies: ['React Native','Next JS', 'PostgreSQL' ],
       image: mv,
       repoLink: "https://github.com/jefin10/MovieVerse",
-      liveLink: "https://rbbackend-hlah.onrender.com",
+      liveLink: "https://movieverse-nine.vercel.app",
       featured: true
     },
 
