@@ -9,6 +9,7 @@ import Projects from './file/Projects';
 import Skills from './file/Skills';
 import Contact from './file/Contact';
 import Intro from './file/Intro';
+import emailjs from 'emailjs-com';
 
 const FullPageIntro = ({ onComplete }) => {
   return (
@@ -123,6 +124,57 @@ function App() {
   useEffect(() => {
     setTimeout(() => setShowIntro(false), 3500);
   }, []);
+
+  // Add this useEffect for visit tracking
+  useEffect(() => {
+    // Check if we've already sent a notification recently
+    const lastVisitTime = localStorage.getItem('lastVisitNotification');
+    const currentTime = new Date().getTime();
+    
+    // Only send notification if it's been more than 24 hours since last notification
+    // or if this is the first visit
+    if (!lastVisitTime || (currentTime - parseInt(lastVisitTime)) > 24 * 60 * 60 * 1000) {
+      // Get visitor information
+      const browserInfo = navigator.userAgent;
+      const screenSize = `${window.screen.width}x${window.screen.height}`;
+      let visitorLocation = "Unknown";
+      
+      // Optional: Get visitor's location if you want to include it
+      // This uses a free API - no API key required
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+          visitorLocation = `${data.city}, ${data.country_name}`;
+          sendVisitNotification(browserInfo, screenSize, visitorLocation);
+        })
+        .catch(() => {
+          // If location fetch fails, send notification without location
+          sendVisitNotification(browserInfo, screenSize, visitorLocation);
+        });
+      
+      // Store the current timestamp
+      localStorage.setItem('lastVisitNotification', currentTime.toString());
+    }
+  }, []);
+  
+  // Function to send visit notification
+  const sendVisitNotification = (browserInfo, screenSize, location) => {
+    const templateParams = {
+      visit_date: new Date().toLocaleString(),
+      browser_info: browserInfo,
+      screen_size: screenSize,
+      visitor_location: location,
+      page_url: window.location.href
+    };
+    
+    emailjs.send(
+      'service_azjb7n6', // Use your existing service ID
+      'template_visit',  // Create a new template with this ID for visit notifications
+      templateParams,
+      'YDuVgM9HyjS1eY6He' // Your existing user ID
+    ).catch(error => console.error("Visit notification error:", error));
+  };
+
   return (
     <div className="flex flex-col w-full h-screen overflow-hidden bg-black">
       {showIntro ? (

@@ -155,7 +155,7 @@ const Projects = () => {
     },
     {
       title: "MovieVerse",
-      description: "RescueBytes is a real-time disaster management system enabling emergency alerts, volunteer coordination, and location-based admin-user interaction through a mobile app and web platform..",
+      description: "A cross-platform movie discovery app that combines user ratings with emotional intelligence. Users can rate movies and get mood-based recommendations. Feeling happy, sad, or nostalgic? MovieVerse has a pick for every vibe. Features swipeable Tinder-style movie cards and a mood-input system for personalized curation.",
       technologies: ['React Native','Next JS', 'PostgreSQL' ],
       image: mv,
       repoLink: "https://github.com/jefin10/MovieVerse",
