@@ -9,6 +9,7 @@ import Projects from './file/Projects';
 import Skills from './file/Skills';
 import Contact from './file/Contact';
 import Intro from './file/Intro';
+import Experience from './file/Experience';
 import emailjs from 'emailjs-com';
 
 const FullPageIntro = ({ onComplete }) => {
@@ -108,6 +109,7 @@ function App() {
   const [currentSection, setCurrentSection] = useState('');
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
@@ -190,6 +192,7 @@ function App() {
                 onNavClick={scrollToSection}
                 homeRef={homeRef}
                 aboutRef={aboutRef}
+                experienceRef={experienceRef}
                 projectsRef={projectsRef}
                 skillsRef={skillsRef}
                 contactRef={contactRef}
@@ -205,6 +208,10 @@ function App() {
 
                   <PageSection id="about" onInView={handleInView} sectionRef={aboutRef}>
                     <About />
+                  </PageSection>
+
+                  <PageSection id="experience" onInView={handleInView} sectionRef={experienceRef}>
+                    <Experience />
                   </PageSection>
 
                   <PageSection id="projects" onInView={handleInView} sectionRef={projectsRef}>

@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Navbar = ({ currentSection, onNavClick, homeRef, aboutRef, projectsRef, skillsRef, contactRef }) => {
+const Navbar = ({ currentSection, onNavClick, homeRef, aboutRef, experienceRef, projectsRef, skillsRef, contactRef }) => {
   const navItems = [
     { id: 'home', label: 'Home', ref: homeRef },
     { id: 'about', label: 'About', ref: aboutRef },
+    { id: 'experience', label: 'Experience', ref: experienceRef },
     { id: 'projects', label: 'Projects', ref: projectsRef },
     { id: 'skills', label: 'Skills', ref: skillsRef },
     { id: 'contact', label: 'Contact', ref: contactRef },
