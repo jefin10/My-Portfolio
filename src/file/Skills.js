@@ -21,7 +21,6 @@ import html from './logo/html.png';
 import css from './logo/css.png';
 import tailwind from './logo/tailwind.png';
 import node from './logo/node.png';
-import django from './logo/django.png';
 import git from './logo/git.png';
 import vscode from './logo/vscode.png';
 import linux from './logo/linux.png';

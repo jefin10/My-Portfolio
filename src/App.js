@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Navbar from './file/Navbar';
 import Home from './file/Home';
-import ParticleBackground from './ParticleBackground';
 import About from './file/About';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

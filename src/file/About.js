@@ -1,6 +1,4 @@
 import React from 'react';
-import jefin from './jefin.png';
-import n from './n.png';
 import mine from './mine.JPG';
 const About = () => {
   return (

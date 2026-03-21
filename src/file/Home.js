@@ -1,21 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react'
-import jefin from './jefin.png'
-import jefi from './jefi.png'
+import React, { useEffect, useState } from 'react'
 import './yo.css'
 import mine from './mine.JPG'
+
+const ROLES = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer'];
+
 const Home = () => {
   
 
   const [currentRole, setCurrentRole] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-  
-  const roles = ['Software Developer', 'Front End Developer', 'MERN Developer', 'Full Stack Developer'];
+  const typingSpeed = 150;
   
   useEffect(() => {
     const typeEffect = () => {
-      const currentText = roles[roleIndex];
+      const currentText = ROLES[roleIndex];
       
       if (!isDeleting) {
         // Typing
@@ -34,7 +33,7 @@ const Home = () => {
         // If completed deleting
         if (currentRole === '') {
           setIsDeleting(false);
-          setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+          setRoleIndex((prevIndex) => (prevIndex + 1) % ROLES.length);
           return;
         }
       }
@@ -42,7 +41,7 @@ const Home = () => {
     
     const timer = setTimeout(typeEffect, isDeleting ? typingSpeed / 2 : typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentRole, isDeleting, roleIndex, roles, typingSpeed]);
+  }, [currentRole, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <div className='flex flex-col justify-between h-full'>

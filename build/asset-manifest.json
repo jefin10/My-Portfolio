@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c5b70c82.css",
+    "main.js": "/static/js/main.a6ebbba9.js",
+    "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
+    "static/media/playtube.png": "/static/media/playtube.160bce4956734822ee0f.png",
+    "static/media/mv.png": "/static/media/mv.7db810ab7239a96de7f9.png",
+    "static/media/celebfindr.png": "/static/media/celebfindr.667f463351a96c76e4cb.png",
+    "static/media/konvo_page.png": "/static/media/konvo_page.95d64822fd65d1725595.png",
+    "static/media/mine.JPG": "/static/media/mine.95f802138aa59ab62161.JPG",
+    "static/media/lifelink.png": "/static/media/lifelink.ca7cc44970d0b0f0be16.png",
+    "static/media/rb.jpg": "/static/media/rb.6222b68383b353fac228.jpg",
+    "static/media/zylo.png": "/static/media/zylo.05f723a85c1ec344f152.png",
+    "static/media/tt.svg": "/static/media/tt.79f6eef761536bddd3829fcdc81e410c.svg",
+    "index.html": "/index.html",
+    "main.c5b70c82.css.map": "/static/css/main.c5b70c82.css.map",
+    "main.a6ebbba9.js.map": "/static/js/main.a6ebbba9.js.map",
+    "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5b70c82.css",
+    "static/js/main.a6ebbba9.js"
+  ]
+}
