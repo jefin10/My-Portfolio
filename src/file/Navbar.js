@@ -20,9 +20,11 @@ const Navbar = ({ currentSection, onNavClick, homeRef, aboutRef, experienceRef, 
   return (
     <nav className="w-full bg-black/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="flex justify-between items-center px-4 py-3 md:px-8">
-        {/* Logo/Brand - Optional */}
-        <div className="text-blue-50 font-semibold text-lg md:hidden">
-          Portfolio
+        {/* Logo/Brand */}
+        <div className="text-blue-50 font-bold text-xl md:hidden">
+          <span className="bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent">
+            JF
+          </span>
         </div>
 
         {/* Desktop Navigation */}
